@@ -39,6 +39,11 @@ public class ProductController {
 		return proService.getAllProd().stream().map(e -> modelMapper.map(e, ProductDto.class))
 				.collect(Collectors.toList());
 	}
+	
+	@GetMapping("/getProduct/{prodName}")
+	public ProductDto getProduct(@PathVariable String prodName) {
+		return modelMapper.map(proService.getProductByName(prodName),ProductDto.class);
+	}
 
 	@GetMapping("/getProduct/{catName}")
 	public List<ProductDto> getByCategory(@PathVariable String catName) {

@@ -19,4 +19,6 @@ public interface ProductService {
 
 	String updateProd(ProductDto prodDto, Long prodId);
 
+	Product getProductByName(String prodName);
+
 }

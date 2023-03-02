@@ -94,6 +94,12 @@ Category cat=catRepo.getByCategoryName(catName);
 		
 	}
 
+	@Override
+	public Product getProductByName(String prodName) {
+		// TODO Auto-generated method stub
+		return proRepo.getByProductName(prodName);
+	}
+
 	
 
 }
