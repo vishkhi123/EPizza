@@ -1,6 +1,9 @@
 package com.pizzahub.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pizzahub.dto.CartDto;
 import com.pizzahub.dto.CartItemDto;
 import com.pizzahub.dto.CustomerDto;
 import com.pizzahub.entities.Customer;
@@ -59,6 +63,11 @@ public class CustomerController {
 	public String addToCart(@RequestBody CartItemDto cartItemDto,@PathVariable String custEmail,@PathVariable String prodName) {
 		
 		return custService.addToCart(cartItemDto, custEmail, prodName);
+	}
+	
+	@GetMapping("/getcart/{custEmail}")
+	public List<CartDto> getCartItems(@PathVariable String custEmail){
+		return custService.getAllCartItems(custEmail);
 	}
 
 	@PostMapping("/deletefromcart/{cartItemId}")

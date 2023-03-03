@@ -45,7 +45,7 @@ public class ProductController {
 		return modelMapper.map(proService.getProductByName(prodName),ProductDto.class);
 	}
 
-	@GetMapping("/getProduct/{catName}")
+	@GetMapping("/getProducts/{catName}")
 	public List<ProductDto> getByCategory(@PathVariable String catName) {
 		return proService.getCat(catName).stream().map(e -> modelMapper.map(e, ProductDto.class))
 				.collect(Collectors.toList());

@@ -7,6 +7,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class CartItem extends BaseEntity {
+	
 	private int quantity;
 	private double totalPrice;
 	

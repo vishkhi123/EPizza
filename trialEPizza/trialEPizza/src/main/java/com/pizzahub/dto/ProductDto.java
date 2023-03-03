@@ -4,6 +4,13 @@ public class ProductDto {
 //	private Long Id;
 	private String productName;
 	private double price;
+	private String prodImage;
+	public String getProdImage() {
+		return prodImage;
+	}
+	public void setProdImage(String prodImage) {
+		this.prodImage = prodImage;
+	}
 	private String description;
 	private boolean inStock;
 	public String getProductName() {

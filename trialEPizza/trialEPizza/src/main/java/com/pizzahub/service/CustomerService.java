@@ -1,5 +1,8 @@
 package com.pizzahub.service;
 
+import java.util.List;
+
+import com.pizzahub.dto.CartDto;
 import com.pizzahub.dto.CartItemDto;
 import com.pizzahub.dto.CustomerDto;
 import com.pizzahub.entities.Customer;
@@ -19,5 +22,7 @@ public interface CustomerService {
 	String deleteFromCart(Long cartItemId);
 
 	CustomerDto validateCustomer(String email, String password);
+
+	List<CartDto> getAllCartItems(String custEmail);
 
 }
