@@ -1,0 +1,53 @@
+.tab-options {
+    box-shadow: var(--border-white) 0px -0.5px 0px inset;
+  }
+
+  .category{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px;
+    width: fit-content;
+    border-radius: 40px;
+    cursor: pointer;
+    background-color: rgb(64, 61, 61);
+    color: white;
+  }
+  
+  .options-wrapper {
+    display: flex;
+   
+  }
+  
+  .tab-item {
+    margin-right: 24px;
+    padding: 5px 5px 14px 5px;
+    
+    
+  }
+  
+  .tab-name {
+    color: var(--inactive-text);
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 5px;
+  }
+  .tab-image-container {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: var(--inactive-color);
+  }
+  .tab-image {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .active-tab {
+    border-bottom: 2px solid var(--zomato-red);
+  }
+  
+  .active-tab .tab-name {
+    color: var(--zomato-red);
+  }
+  

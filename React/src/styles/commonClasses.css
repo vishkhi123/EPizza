@@ -1,0 +1,29 @@
+.max-width{
+    max-width: 100%;
+    /* margin: 20px auto; */
+
+}
+
+/* How to center some thing in a div */
+.absolute-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cur-po {
+    cursor: pointer;
+  }
+  
+  .collection-title {
+    font-size: 30px;
+    color: var(--heading-text);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  
+  .slick-next:before,
+  .slick-prev:before {
+    color: var(--gray);
+  }
+  
