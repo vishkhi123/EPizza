@@ -3,9 +3,11 @@ package com.pizzahub.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,9 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pizzahub.dto.CartDto;
 import com.pizzahub.dto.CartItemDto;
 import com.pizzahub.dto.CustomerDto;
+import com.pizzahub.entities.Customer;
 import com.pizzahub.service.CustomerService;
+import com.pizzahub.service.WishlistService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/users")
 public class CustomerController {
 	
@@ -33,8 +38,8 @@ public class CustomerController {
 	private CustomerService custService;
 	
 	
-	@PostMapping("/login")
-	public CustomerDto authenticateCustomer(@RequestParam String email,@RequestParam String password) {
+	@PostMapping("/login/{email}/{password}")
+	public CustomerDto authenticateCustomer(@PathVariable String email,@PathVariable String password) {
 		return custService.validateCustomer(email, password);
 	}
 	
@@ -68,16 +73,16 @@ public class CustomerController {
 	}
 
 	@PostMapping("/deletefromcart/{cartItemId}")
-	public String deleteFromCart(Long cartItemId) {
+	public String deleteFromCart(@PathVariable Long cartItemId) {
 		return custService.deleteFromCart(cartItemId);
 		
 	}
 
 	
-//	@PutMapping
-//	public Customer updateCustomerDetails(@RequestBody Customer user)
-//	{
-//		return userService.updateCustomerDetails(user);
-//	}
+	@PostMapping("/update")
+	public String updateCustomerDetails(@RequestBody CustomerDto user)
+	{
+		return custService.updateCustomerDetails(user);
+	}
 
 }
